@@ -297,7 +297,8 @@ void write_int_ln(const char* prefix, uint8_t value) {
 }
 
 static void print_status_narrow(void) {
-    oled_write_ln_P(PSTR("SofleChoc _____"), false);
+    //oled_write_ln_P(PSTR("SofleChoc _____"), false);
+    oled_write_ln_P(PSTR("Houty_____"), false);
 
     if (get_highest_layer(layer_state) == _ADJUST) {
         uint8_t mode  = rgb_matrix_get_mode();
@@ -330,7 +331,7 @@ static void print_status_narrow(void) {
     // Print current layer
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
-            oled_write_P(PSTR("Alpha"), false);
+            oled_write_P(PSTR("home"), false);
             break;
         case _LOWER:
             oled_write_P(PSTR("Nav  "), false);
