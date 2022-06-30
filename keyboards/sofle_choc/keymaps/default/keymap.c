@@ -102,8 +102,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT(
     _______, _______, _______, _______, _______, _______,                         _______, _______,   _______, _______,   _______,  _______,
-    _______, _______, _______, _______, XXXXXXX, XXXXXXX,                         KC_PGUP, KC_PRVWD,  KC_UP,   KC_NXTWD,  KC_DLINE, KC_BSPC,
-    _______, KC_LALT, KC_LCTL, KC_LSFT, TG(_NUMPAD), KC_CAPS,                         KC_PGDN, KC_LEFT,   KC_DOWN, KC_RGHT,   KC_DEL,   KC_BSPC,
+    _______, _______, _______, _______, XXXXXXX, XXXXXXX,                         _______, KC_PRVWD,  KC_UP,   KC_NXTWD,  _______,  _______,
+    _______, KC_LALT, KC_LCTL, KC_LSFT, TG(_NUMPAD), KC_CAPS,                     _______, KC_LEFT,   KC_DOWN, KC_RGHT,   KC_DEL,   KC_BSPC,
     _______, _______, _______, _______, _______, XXXXXXX, _______,       _______, XXXXXXX, KC_LSTRT,  XXXXXXX, KC_LEND,   XXXXXXX,  _______,
                       _______, _______, _______, _______, _______,       _______, _______,  _______,   _______, _______
 ),
@@ -348,29 +348,20 @@ void write_int_ln(const char* prefix, uint8_t value) {
 }
 /*
 static void print_status_wide(void) {
-    switch (get_highest_layer(layer_state)) {
-        case _QWERTY:
-            oled_write_P(PSTR("home "), false);
-            break;
-        case _LOWER:
-            oled_write_P(PSTR("Nav  "), false);
-            break;
-        case _RAISE:
-            oled_write_P(PSTR("Sym  "), false);
-            break;
-        case _ADJUST:
-            oled_write_P(PSTR("Adj  "), false);
-            break;
-        case _NUMPAD:
-            oled_write_P(PSTR("Numpad"), true);
-            break;
-        default:
-            oled_write_P(PSTR("???  "), false);
-    }
+  if (get_highest_layer(layer_state) == _NUMPAD) {
+        oled_write_P(PSTR("\n"), false);
+        oled_write_P(PSTR("Numpa"), true);
+        oled_write_P(PSTR("^789*"), false);
+        oled_write_P(PSTR("-456="), false);
+        oled_write_P(PSTR("+123/"), false);
+        oled_write_P(PSTR(" 0.  "), false);
+        oled_write_P(PSTR("\n\n\n\n\n"), false);
+  } else {
+    oled_write_P(PSTR("\n\n\n\n\n"), false);
+  }
 }
 */
 static void print_status_narrow(void) {
-    //oled_write_ln_P(PSTR("SofleChoc _____"), false);
     oled_write_ln_P(PSTR("Houty_____"), false);
 
     if (get_highest_layer(layer_state) == _ADJUST) {
