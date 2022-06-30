@@ -364,6 +364,14 @@ static void print_status_narrow(void) {
         write_int_ln(PSTR("V "), hsv.v);
         write_int_ln(PSTR("Sp"), speed);
         oled_write_P(PSTR("\n\n\n"), false);
+    }
+    else if (get_highest_layer(layer_state) == _NUMPAD) {
+        oled_write_P(PSTR("\n"), false);
+        oled_write_P(PSTR("^789*"), false);
+        oled_write_P(PSTR("-456="), false);
+        oled_write_P(PSTR("+123/"), false);
+        oled_write_P(PSTR(" 0.  "), false);
+        oled_write_P(PSTR("\n\n\n\n\n\n"), false);
     } else {
         oled_write_P(PSTR("\n\n\n\n\n\n\n\n\n"), false);
         led_t led_usb_state = host_keyboard_led_state();
@@ -392,7 +400,7 @@ static void print_status_narrow(void) {
             oled_write_P(PSTR("Numpa"), true);
             break;
         default:
-            oled_write_P(PSTR("???  "), false);
+            oled_write_P(PSTR("Undef"), false);
     }
 }
 
