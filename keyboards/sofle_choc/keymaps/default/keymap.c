@@ -16,7 +16,8 @@
 #include QMK_KEYBOARD_H
 
 enum sofle_layers {
-    _QWERTY,
+  //    _QWERTY,
+    _DVORAK,
     _LOWER,
     _RAISE,
     _ADJUST,
@@ -50,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *            | LCTL | LOPT | LCMD |LOWER | /Enter  /       \Space \  |RAISE | RCMD | ROPT | RCTL |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
- */
+ *
 
 [_QWERTY] = LAYOUT( \
     KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,     KC_7,     KC_8,    KC_9,    KC_0,    KC_GRV,
@@ -59,6 +60,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_MUTE,   KC_MPLY,KC_N,     KC_M,     KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                       KC_LGUI, KC_LALT, KC_LCTRL,KC_LOWER,KC_ENT,    KC_SPC, KC_RAISE, KC_RCTRL, KC_RALT, KC_RGUI
 ),
+*/
+/*
+ * DVORAK
+ * ,-----------------------------------------.                    ,-----------------------------------------.
+ * |  `   |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  | Bspc |
+ * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * | ESC  |   '  |   ,  |   .  |   P  |   Y  |                    |   F  |   G  |   C  |   R  |   L  |  /   |
+ * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * | Tab  |   A  |   O  |   E  |   U  |   I  |-------.    ,-------|   D  |   H  |   T  |   N  |   S  |  -   |
+ * |------+------+------+------+------+------|  Mute |    | Pause |------+------+------+------+------+------|
+ * |LShift|   ;  |   Q  |   J  |   K  |   X  |-------|    |-------|   B  |   M  |   W  |   V  |   Z  |RShift|
+ * `-----------------------------------------/       /     \      \-----------------------------------------'
+ *            | LCTL | LOPT | LCMD |LOWER | /Enter  /       \Space \  |RAISE | RCMD | ROPT | RCTL |
+ *            |      |      |      |      |/       /         \      \ |      |      |      |      |
+ *            `----------------------------------'           '------''---------------------------'
+ */
+
+[_DVORAK] = LAYOUT( \
+    KC_GRV,          KC_1,    KC_2,     KC_3,    KC_4,     KC_5,                          KC_6,     KC_7,     KC_8,    KC_9,   KC_0, KC_BSPC,
+    KC_ESC,          KC_QUOT, KC_COMM,  KC_DOT,  KC_P,     KC_Y,                          KC_F,     KC_G,     KC_C,    KC_R,   KC_L, KC_SLSH,
+    KC_TAB,          KC_A,    KC_O,     KC_E,    KC_U,     KC_I,                          KC_D,     KC_H,     KC_T,    KC_N,   KC_S, KC_MINS,
+    KC_LSFT, KC_SCLN, KC_Q,     KC_J,    KC_K,     KC_X,     KC_MUTE,    KC_MPLY, KC_B,     KC_M,     KC_W,    KC_V,   KC_Z,  KC_RSFT,
+    KC_LGUI,  KC_LALT, KC_LCTRL, KC_LOWER, KC_ENT,     KC_SPC,  KC_RAISE, KC_RCTRL, KC_RALT, KC_RGUI
+),
+
+
 /* LOWER
  * ,----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
@@ -384,8 +411,8 @@ static void print_status_narrow(void) {
 
     // Print current layer
     switch (get_highest_layer(layer_state)) {
-        case _QWERTY:
-            oled_write_P(PSTR("home "), false);
+        case _DVORAK:
+            oled_write_P(PSTR("Dvrk "), false);
             break;
         case _LOWER:
             oled_write_P(PSTR("Nav  "), false);
@@ -417,7 +444,6 @@ bool oled_task_user(void) {
     } else {
         render_logo();
     }
-
     return false;
 }
 
