@@ -101,11 +101,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *            `----------------------------------'           '------''---------------------------'
  */
 [_LOWER] = LAYOUT(
-    _______, _______, _______, _______, _______, _______,                         _______, _______,   _______, _______,   _______,  _______,
-    _______, _______, _______, _______, XXXXXXX, XXXXXXX,                         _______, KC_PRVWD,  KC_UP,   KC_NXTWD,  _______,  _______,
-    _______, KC_LALT, KC_LCTL, KC_LSFT, TG(_NUMPAD), KC_CAPS,                     _______, KC_LEFT,   KC_DOWN, KC_RGHT,   KC_DEL,   KC_BSPC,
-    _______, _______, _______, _______, _______, XXXXXXX, _______,       _______, XXXXXXX, KC_LSTRT,  XXXXXXX, KC_LEND,   XXXXXXX,  _______,
-                      _______, _______, _______, _______, _______,       _______, _______,  _______,   _______, _______
+    KC_ESC,  _______, _______, _______, _______,     _______,                         _______, _______, _______, _______, _______, KC_DEL,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, TG(_NUMPAD), KC_CAPS,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, _______,       _______, XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX, _______,
+                      XXXXXXX, _______, _______,     _______, _______,       _______, _______, KC_LEFT, KC_DOWN, KC_RGHT
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
