@@ -333,7 +333,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef OLED_ENABLE
 
 static void render_logo(void) {
-    oled_write_ln_P(
+    oled_write_P(
                     PSTR("/////\\\\\\\\\\/////\\\\\\\\\\/////\\\\\\\\\\/////\\\\\\\\\\/////\\\\\\\\\\/////\\\\\\\\\\/////\\\\\\\\\\/////\\\\\\\\\\////"),
                     false);
 }
@@ -429,7 +429,9 @@ bool oled_task_user(void) {
     if (is_keyboard_master()) {
         print_status_narrow();
     } else {
-        render_logo();
+      render_logo();
+      oled_scroll_set_speed(5);
+      oled_scroll_right();
     }
     return false;
 }
