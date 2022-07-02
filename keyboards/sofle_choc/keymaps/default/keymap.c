@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,                           KC_F,   KC_G,    KC_C,    KC_R,   KC_L, KC_SLSH,
     KC_LSFT,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                           KC_D,   KC_H,    KC_T,    KC_N,   KC_S, KC_MINS,
     KC_LCTRL, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,   KC_MUTE,      KC_MPLY,  KC_B,   KC_M,    KC_W,    KC_V,   KC_Z, KC_RSFT,
-                       KC_EQL,  KC_LGUI, KC_LALT, KC_ENT, KC_LOWER,     KC_RAISE, KC_SPC, KC_LBRC, KC_RBRC, KC_BSLS
+                       KC_EQL,  KC_LALT, KC_LGUI, KC_ENT, KC_LOWER,     KC_RAISE, KC_SPC, KC_LBRC, KC_RBRC, KC_BSLS
 ),
 
 
@@ -145,9 +145,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    RESET,   RGB_SPI, RGB_VAI, RGB_SAI, RGB_HUI, RGB_MODE_FORWARD,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, RGB_SPD, RGB_VAD, RGB_SAD, RGB_HUD, RGB_MODE_REVERSE,                       XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,
-    CG_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,     _______, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
+    RESET,   RGB_SPI, RGB_VAI, RGB_SAI, RGB_HUI, RGB_MODE_FORWARD,              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, RGB_SPD, RGB_VAD, RGB_SAD, RGB_HUD, RGB_MODE_REVERSE,              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    CG_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
 ),
 
