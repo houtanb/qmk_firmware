@@ -102,10 +102,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT(
     KC_ESC,  _______, _______, _______, _______,     _______,                         _______, _______, _______, _______, _______, KC_DEL,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, TG(_NUMPAD), KC_CAPS,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, _______,       _______, XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX, _______,
-                      XXXXXXX, _______, _______,     _______, _______,       _______, _______, KC_LEFT, KC_DOWN, KC_RGHT
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX,                         XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, TG(_NUMPAD), KC_CAPS,                         XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, _______,       _______, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, _______,
+                      XXXXXXX, _______, _______,     _______, _______,       _______, _______, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -342,21 +342,7 @@ void write_int_ln(const char* prefix, uint8_t value) {
     oled_write_P(prefix, false);
     oled_write(get_u8_str(value, ' '), false);
 }
-/*
-static void print_status_wide(void) {
-  if (get_highest_layer(layer_state) == _NUMPAD) {
-        oled_write_P(PSTR("\n"), false);
-        oled_write_P(PSTR("Numpa"), true);
-        oled_write_P(PSTR("^789*"), false);
-        oled_write_P(PSTR("-456="), false);
-        oled_write_P(PSTR("+123/"), false);
-        oled_write_P(PSTR(" 0.  "), false);
-        oled_write_P(PSTR("\n\n\n\n\n"), false);
-  } else {
-    oled_write_P(PSTR("\n\n\n\n\n"), false);
-  }
-}
-*/
+
 static void print_status_narrow(void) {
     oled_write_ln_P(PSTR("/////\\\\\\\\\\"), false);
 
